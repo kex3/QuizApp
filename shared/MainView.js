@@ -10,8 +10,24 @@ import {
   Text,
   View
 } from 'react-native';
+import Quotes from './quotes';
 
 export default class MainView extends Component {
+  constructor() {
+    super();
+    MainView.Quotes = Quotes;
+    MainView.Images = {
+      AndersRingqvist: require('../img/AndersRingqvist.jpg'),
+      JoelSannerstedt: require('../img/JoelSannerstedt.jpg'),
+      JustinNel: require('../img/JustinNel.jpg'),
+      MikaelBrassman: require('../img/MikaelBrassman.jpg'),
+      StellanRunander: require('../img/StellanRunander.jpg'),
+      VictoriaHolmqvist: require('../img/VictoriaHolmqvist.jpg'),
+      NejcPalir: require('../img/NejcPalir.jpg')
+    };
+    MainView.People = [...new Set(MainView.Quotes.map(item => item.w))];
+  }
+
   render() {
     return (
       <View style={styles.container}>
